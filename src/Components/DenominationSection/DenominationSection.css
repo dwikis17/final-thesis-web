@@ -1,0 +1,8 @@
+.selected {
+    box-shadow: 2px 5px #282c34;
+    background-color: orange
+}
+
+.not-selected {
+    box-shadow:0;
+}

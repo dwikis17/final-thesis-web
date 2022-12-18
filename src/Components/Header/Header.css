@@ -1,14 +1,11 @@
 .header {
-  width: 100%;
   height: 107px;
   background-color: #1e2633;
-  display: flex;
   align-items: center;
   margin: auto;
   top: 0;
   z-index: 2;
   position: sticky;
-  align-content: space-between;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
@@ -34,37 +31,4 @@ img {
 }
 .input {
   width: 50%;
-}
-button {
-  color: white;
-  padding: 0.7em 1.7em;
-  font-size: 10px;
-  border-radius: 0.5em;
-  background: #f68630;
-
-  border: 1px solid #f68630;
-  transition: all 0.3s;
-  box-shadow: 2px 2px 2px #c5c5c5, -1px -1px 2px #ffffff;
-}
-button:hover {
-  border: 1px solid white;
-}
-
-button:active {
-  box-shadow: 4px 4px 12px #f68630, -4px -4px 12px #f68630;
-}
-
-@media only screen and (max-width: 600px) {
-  button {
-    display: none;
-  }
-  img {
-    display: none;
-  }
-  /* .header-container{
-        width: 100%;
-    } */
-  .input {
-    width: 100%;
-  }
 }
