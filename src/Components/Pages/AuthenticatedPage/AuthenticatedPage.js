@@ -1,29 +1,31 @@
 import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import PrivateRoute from '../../Routes/RenderAdminPage/PrivateRoute';
+import DashboardPage from './DashboardPage/DashboardPage';
+import TransactionPage from './TransactionPage/TransactionPage';
 
-class AuthenticatedPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authenticated: false
-    };
-  }
-
-  async componentDidMount() {
-    const { authenticated } = this.state;
-    const { history } = this.props;
-    if (!authenticated) {
-      console.log('asdf');
-      history.push('/');
-    }
-  }
-
-  render() {
-    console.log('msk authenticated page');
-
-    return (
-      <h1>thisis authenticated</h1>
-    );
-  }
+function AuthenticatedPage({ history, userData }) {
+  return (
+    <Switch>
+      <PrivateRoute
+        path="/admin/dashboard"
+        history={history}
+        user={userData}
+        component={DashboardPage}
+      />
+      <PrivateRoute
+        path="/admin/transaction"
+        history={history}
+        user={userData}
+        component={TransactionPage}
+      />
+      <Redirect to="/admin/dashboard" />
+    </Switch>
+  );
 }
+
+AuthenticatedPage.propTypes = {
+
+};
 
 export default AuthenticatedPage;

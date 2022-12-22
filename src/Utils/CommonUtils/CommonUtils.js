@@ -1,9 +1,12 @@
 import { message } from 'antd';
 import axios from 'axios';
-import { PAYMENT_API, PAYMENT_REDIRECT } from '../../Constants/Apis';
+import { PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API } from '../../Constants/Apis';
 
 export const getToken = () => {
   return localStorage.getItem('token');
+};
+export const headers = () => {
+  return { headers: { authorization: `Bearer ${localStorage.getItem('token')}` } };
 };
 
 export const reducer = (state, action) => {
@@ -27,4 +30,11 @@ export const createTransactionToken = async (payload) => {
 
 export const handleNumberCurrency = (number) => {
   return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number) || 0;
+};
+
+export const doSignIn = async (value, history) => {
+  return axios.post(
+    SIGN_IN_API,
+    value,
+  );
 };
