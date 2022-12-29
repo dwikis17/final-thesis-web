@@ -22,7 +22,7 @@ export const createTransactionToken = async (payload) => {
   try {
     const { data: transactionToken } = await axios.get(PAYMENT_API, { params: payload });
 
-    return window.open(`${PAYMENT_REDIRECT}/${transactionToken}`);
+    return window.open(transactionToken?.redirect_url);
   } catch (error) {
     return message.error(error?.message);
   }

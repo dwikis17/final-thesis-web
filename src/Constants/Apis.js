@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:80/api';
 
-export const VERIFY_TOKEN_API = `${baseUrl}/user/verify`;
+export const VERIFY_TOKEN_API = `${baseUrl}/admin/verify`;
 export const FETCH_ALL_GAMES_API = `${baseUrl}/game`;
 export const SIGN_IN_API = `${baseUrl}/user/sign-in`;
 export const PAYMENT_API = `${baseUrl}/transaction`;
