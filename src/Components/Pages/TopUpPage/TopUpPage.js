@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { message } from 'antd';
 import { isEmpty } from 'lodash';
@@ -13,6 +13,7 @@ import useMidtransScript from '../../../Utils/useMidtransScript';
 import { createTransactionToken } from '../../../Utils/CommonUtils/CommonUtils';
 
 function TopUpPage(props) {
+  const history = useHistory();
   const { game } = useParams();
   const [voucherList, setVoucherList] = React.useState([]);
   const { fetchedData: { data } } = useAxios(`${FETCH_ALL_GAMES_API}/${game}`);
@@ -36,7 +37,7 @@ function TopUpPage(props) {
     if (!isEmpty(error)) {
       return message.error('Silahkan isi semua data !');
     }
-    return createTransactionToken(formik.values);
+    return createTransactionToken(formik.values, history);
   };
 
   return (

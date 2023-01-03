@@ -1,6 +1,8 @@
 import { message } from 'antd';
 import axios from 'axios';
-import { PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API } from '../../Constants/Apis';
+import {
+  PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API, UPDATE_TRANSACTION_API
+} from '../../Constants/Apis';
 
 export const getToken = () => {
   return localStorage.getItem('token');
@@ -18,10 +20,10 @@ export const normalizeGameName = (gameName) => {
   return gameName.replace(' ', '-');
 };
 
-export const createTransactionToken = async (payload) => {
+export const createTransactionToken = async (payload, history) => {
   try {
     const { data: transactionToken } = await axios.get(PAYMENT_API, { params: payload });
-
+    history.push({ pathname: '/checkout', state: { redirectUrl: transactionToken?.redirect_url } });
     return window.open(transactionToken?.redirect_url);
   } catch (error) {
     return message.error(error?.message);
@@ -37,4 +39,12 @@ export const doSignIn = async (value, history) => {
     SIGN_IN_API,
     value,
   );
+};
+
+export const updateTransactionStatusToDone = async (orderId) => {
+  const headerParams = {
+    ...headers()
+  };
+
+  return axios.put(`${UPDATE_TRANSACTION_API}/${orderId}`, {}, headerParams);
 };

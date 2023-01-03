@@ -53,13 +53,13 @@ function TrackOrderPage(props) {
       key: 'email',
     },
     {
-      title: 'Payment Status',
-      dataIndex: 'paymentStatus',
-      key: 'paymentStatus',
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
     },
     {
       title: 'Action',
-      dataIndex: 'paymentStatus',
+      dataIndex: 'status',
       render: (items, record) => renderItems(items, record)
     }
   ];

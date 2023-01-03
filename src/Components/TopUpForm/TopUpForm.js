@@ -11,7 +11,7 @@ function TopUpForm({ data, handleSubmit, formik }) {
       <div className="w-full grid text-4xl h-24">
         <h1>{data?.name.toUpperCase()}</h1>
       </div>
-      <IdTaglineSection formik={formik} />
+      <IdTaglineSection formik={formik} game={data?.name} />
       <DenominationSection data={data} formik={formik} />
       <EmailSection formik={formik} />
       <h1>

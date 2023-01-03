@@ -43,7 +43,6 @@ class AdminRoutes extends React.Component {
     try {
       const token = getToken();
       const data = await axios.get(`${VERIFY_TOKEN_API}/${token}`);
-      console.log(data);
       const dateIsExpired = Date.now() >= data.data.decodedToken.exp * 1000;
       const verifyFail = data.status !== HTTP_STATUS_OK;
       if (verifyFail || dateIsExpired) {
@@ -75,7 +74,7 @@ class AdminRoutes extends React.Component {
     const { history } = this.props;
     return (
       <div className="relative">
-        <div className="routes-container w-100 h-full border ">
+        <div className="routes-container w-100 h-full border mb-10">
           <Layout>
             <Header style={{
               position: 'sticky', top: 0, zIndex: 1, width: '100%'
@@ -111,7 +110,7 @@ class AdminRoutes extends React.Component {
             </Header>
           </Layout>
         </div>
-        <div className="content  w-full mt-0 p-10">
+        <div className="content  w-3/4 m-auto p-10">
           {authenticated && <AuthenticatedPage history={history} userData={this.state} />}
         </div>
       </div>

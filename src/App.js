@@ -9,6 +9,7 @@ import TopUpPage from './Components/Pages/TopUpPage/TopUpPage';
 import TrackOrderPage from './Components/Pages/TrackOrderPage/TrackOrderPage';
 import SignInPage from './Components/Pages/SignInPage/SignInPage';
 import AdminRoutes from './Components/Routes/AdminRoutes';
+import CheckoutPage from './Components/Pages/CheckoutPage/CheckoutPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/track" component={TrackOrderPage} />
         <Route path="/login" component={SignInPage} />
         <Route path="/admin" component={AdminRoutes} />
+        <Route path="/checkout" component={CheckoutPage} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
