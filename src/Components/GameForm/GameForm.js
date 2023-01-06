@@ -1,3 +1,4 @@
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 import {
   Button,
   Col, Form, Input, Row, Upload, message, Select,
@@ -9,7 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { FETCH_ALL_GAMES_API, GET_DENOMINATION_LIST } from '../../Constants/Apis';
 import GameCreationSchema from '../../Schema/GameCreationSchema';
 import { createNewGame, handleNumberCurrency, updateGame } from '../../Utils/CommonUtils/CommonUtils';
-import { UploadProps } from '../../Utils/CommonUtils/UploadProps';
+import { UploadProps, UploadPropsImageLogo } from '../../Utils/CommonUtils/UploadProps';
 import { useAxios } from '../../Utils/CommonUtils/useAxios';
 
 const { Option } = Select;
@@ -63,9 +64,29 @@ function GameForm({
     });
   };
 
+  const renderUploadImage = () => {
+    return (
+      <Row>
+        <Col span={12}>
+          <Upload {...UploadPropsImageLogo(gameData?._id, 'image')}>
+            <Button className="mb-5">Upload Image</Button>
+          </Upload>
+        </Col>
+        <Col span={24}>
+          <Upload {...UploadPropsImageLogo(gameData?._id, 'imageBanner')}>
+            <Button className="mb-5">Upload Image Banner</Button>
+          </Upload>
+        </Col>
+
+      </Row>
+    );
+  };
   return (
     <div className="w-full border border-white bg-white rounded-md p-12">
       <Form layout="vertical">
+        {
+          isEditMode && !disabled && renderUploadImage()
+        }
         <Row>
           <Col span={24}>
             <Form.Item
@@ -122,9 +143,5 @@ function GameForm({
     </div>
   );
 }
-
-GameForm.propTypes = {
-
-};
 
 export default GameForm;

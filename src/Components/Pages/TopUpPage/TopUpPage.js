@@ -15,7 +15,7 @@ import { createTransactionToken } from '../../../Utils/CommonUtils/CommonUtils';
 function TopUpPage(props) {
   const history = useHistory();
   const { game } = useParams();
-  const [voucherList, setVoucherList] = React.useState([]);
+
   const { fetchedData: { data } } = useAxios(`${FETCH_ALL_GAMES_API}/${game}`);
   useMidtransScript();
 
@@ -39,14 +39,15 @@ function TopUpPage(props) {
     }
     return createTransactionToken(formik.values, history);
   };
-
+  // url(http://localhost:80/uploads/${image})
+  console.log(data);
   return (
     <div className="container">
       <Header />
       <div className="grid gap-12 grid-cols-1 text-white justify-items-center sm:grid-cols-2 p-12">
         <div className=" w-full">
           <div className="grid  grid-cols-1 text-center justify-items-center">
-            <img src={`/Assets/${data?.imageBanner}`} alt="" className="w-full mb-10" />
+            <img src={`http://localhost:80/uploads/${data?.imageBanner}`} alt="" className="w-full mb-10" />
             <h1>{data?.description}</h1>
           </div>
         </div>
