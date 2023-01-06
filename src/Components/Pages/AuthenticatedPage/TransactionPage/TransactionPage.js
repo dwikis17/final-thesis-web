@@ -15,7 +15,6 @@ function TransactionPage(props) {
   const { fetchedData: { data }, callReFetch, loading } = useAxios(FETCH_ALL_TRANSACTION_API, state);
 
   const handleOnClickUpdate = async (orderId) => {
-    console.log('orderId', orderId);
     await updateTransactionStatusToDone(orderId);
     callReFetch();
   };

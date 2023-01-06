@@ -1,6 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 import {
+  FETCH_ALL_GAMES_API,
   PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API, UPDATE_TRANSACTION_API
 } from '../../Constants/Apis';
 
@@ -18,6 +19,23 @@ export const reducer = (state, action) => {
 
 export const normalizeGameName = (gameName) => {
   return gameName.replace(' ', '-');
+};
+
+export const createNewGame = async (payload, history) => {
+  try {
+    const { data: { _id } } = await axios.post(FETCH_ALL_GAMES_API, payload);
+    return history.push(`/admin/game-detail/${_id}`);
+  } catch (e) {
+    return message.error('something went wrong');
+  }
+};
+
+export const updateGame = async (payload, id) => {
+  try {
+    return axios.put(`${FETCH_ALL_GAMES_API}/${id}`, payload);
+  } catch (e) {
+    return message.error('something went wrong');
+  }
 };
 
 export const createTransactionToken = async (payload, history) => {

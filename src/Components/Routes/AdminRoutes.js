@@ -105,6 +105,11 @@ class AdminRoutes extends React.Component {
                     icon: <UserOutlined />,
                     label: 'Transaction',
                   },
+                  {
+                    key: '/admin/games',
+                    icon: <UserOutlined />,
+                    label: 'Games Management',
+                  },
                 ]}
               />
             </Header>
