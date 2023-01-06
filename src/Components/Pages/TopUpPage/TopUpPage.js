@@ -39,8 +39,7 @@ function TopUpPage(props) {
     }
     return createTransactionToken(formik.values, history);
   };
-  // url(http://localhost:80/uploads/${image})
-  console.log(data);
+
   return (
     <div className="container">
       <Header />
