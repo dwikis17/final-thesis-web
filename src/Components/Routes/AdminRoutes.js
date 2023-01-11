@@ -72,7 +72,7 @@ class AdminRoutes extends React.Component {
   render() {
     const { authenticated, name, email } = this.state;
     const { history } = this.props;
-    return (
+    return authenticated ? (
       <div className="relative">
         <div className="routes-container w-100 h-full border mb-10">
           <Layout>
@@ -116,10 +116,10 @@ class AdminRoutes extends React.Component {
           </Layout>
         </div>
         <div className="content  w-3/4 m-auto p-10">
-          {authenticated && <AuthenticatedPage history={history} userData={this.state} />}
+          <AuthenticatedPage history={history} userData={this.state} />
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 
