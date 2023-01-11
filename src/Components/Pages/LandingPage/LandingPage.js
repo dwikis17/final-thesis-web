@@ -15,6 +15,7 @@ function LandingPage(props) {
   const params = {
     searchKeyword
   };
+  console.log('masuk');
 
   const { fetchedData: { data }, callReFetch, loading } = useAxios(FETCH_ALL_GAMES_API, params);
 
