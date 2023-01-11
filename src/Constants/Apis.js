@@ -5,6 +5,7 @@ export const FETCH_ALL_GAMES_API = `${baseUrl}/game`;
 export const UPLOAD_GAME_IMAGE_API = `${baseUrl}/game/image/upload`;
 export const SIGN_IN_API = `${baseUrl}/admin/sign-in`;
 export const PAYMENT_API = `${baseUrl}/transaction`;
+export const CHART_API = `${baseUrl}/transaction/chart`;
 export const UPDATE_TRANSACTION_API = `${baseUrl}/transaction/update`;
 export const FETCH_ALL_TRANSACTION_API = `${baseUrl}/transaction/transaction`;
 export const GET_TRANSACTION_BY_ORDER_ID = `${baseUrl}/transaction/get-transaction`;
