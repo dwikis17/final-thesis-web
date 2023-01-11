@@ -44,7 +44,7 @@ function TopUpPage(props) {
     <div className="container">
       <Header />
       <div className="grid gap-12 grid-cols-1 text-white justify-items-center sm:grid-cols-2 p-12">
-        <div className=" w-full">
+        <div className="w-full">
           <div className="grid  grid-cols-1 text-center justify-items-center">
             <img src={`http://localhost:80/uploads/${data?.imageBanner}`} alt="" className="w-full mb-10" />
             <h1>{data?.description}</h1>

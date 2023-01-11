@@ -18,7 +18,7 @@ function DenominationSection({ data, formik }) {
 
         return (
 
-          <div className=" border border-black w-18 h-16 rounded-xl text-black sm:w-32">
+          <div className="border border-black w-18 h-16 rounded-xl text-black sm:w-24">
             <button type="submit" className={`w-full h-full rounded-xl ${selected}`} onClick={() => handleOnClick(items)}>
               {items?.nominal}
               {' '}
@@ -35,7 +35,7 @@ function DenominationSection({ data, formik }) {
     <>
       <h1>Pilih Nominal Voucher</h1>
       <div className="w-full grid grid-cols-3 bg-white  items-center rounded-xl sm:gap-10 h-full p-2 justify-items-start gap-0  border border-black">
-        <div className=" w-full col-span-2 h-full grid grid-cols-1 sm:grid-cols-3 p-2 gap-6">
+        <div className="w-full col-span-2 h-full grid grid-cols-1 sm:grid-cols-3 p-2 gap-6">
           {renderDenomination()}
         </div>
 
