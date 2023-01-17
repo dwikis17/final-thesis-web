@@ -63,7 +63,11 @@ class SignInPage extends React.Component {
       window.localStorage.setItem('token', data?.data?.accessToken);
       return history.push({ pathname: '/admin/dashboard', state: { auth: true } });
     } catch (error) {
-      return message.error(error?.response?.data?.msg);
+      console.log(error);
+      if (error?.response?.status === 401) {
+        return message.error('password did not match');
+      }
+      return message.error('something went wrong');
     }
   };
 

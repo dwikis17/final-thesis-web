@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter, Redirect, Switch, Route
-} from 'react-router-dom';
 import axios from 'axios';
 import { Layout, Menu, theme } from 'antd';
 import './AdminRoutes.css';
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  TransactionOutlined
 } from '@ant-design/icons';
+import { FolderOpenOutlined, LogoutOutlined } from '@mui/icons-material';
 import { VERIFY_TOKEN_API } from '../../Constants/Apis';
 import SignInPage from '../Pages/SignInPage/SignInPage';
 import { getToken } from '../../Utils/CommonUtils/CommonUtils';
@@ -19,7 +14,7 @@ import { HTTP_STATUS_OK } from '../../Constants/HttpStatusConstants';
 import AuthenticatedPage from '../Pages/AuthenticatedPage/AuthenticatedPage';
 
 const {
-  Header, Content, Footer, Sider
+  Header
 } = Layout;
 
 class AdminRoutes extends React.Component {
@@ -69,12 +64,21 @@ class AdminRoutes extends React.Component {
     }
   };
 
+  handleOnClickNavbar = (value) => {
+    const { history } = this.props;
+    if (value.key !== '/logout') {
+      return history.push(value.key);
+    }
+    localStorage.clear();
+    return history.push('/login');
+  };
+
   render() {
     const { authenticated, name, email } = this.state;
     const { history } = this.props;
     return authenticated ? (
       <div className="relative">
-        <div className="routes-container w-100 h-full border mb-10">
+        <div className="routes-container w-100 h-full mb-10">
           <Layout>
             <Header style={{
               position: 'sticky', top: 0, zIndex: 1, width: '100%'
@@ -92,7 +96,7 @@ class AdminRoutes extends React.Component {
               <Menu
                 theme="dark"
                 mode="horizontal"
-                onClick={(values) => history.push(`${values.key}`)}
+                onClick={(values) => this.handleOnClickNavbar(values)}
                 defaultSelectedKeys={['1']}
                 items={[
                   {
@@ -102,13 +106,18 @@ class AdminRoutes extends React.Component {
                   },
                   {
                     key: '/admin/transaction',
-                    icon: <UserOutlined />,
+                    icon: <TransactionOutlined />,
                     label: 'Transaction',
                   },
                   {
                     key: '/admin/games',
-                    icon: <UserOutlined />,
+                    icon: <FolderOpenOutlined />,
                     label: 'Games Management',
+                  },
+                  {
+                    key: '/logout',
+                    icon: <LogoutOutlined />,
+                    label: 'Logout',
                   },
                 ]}
               />

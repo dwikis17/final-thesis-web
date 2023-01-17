@@ -33,12 +33,13 @@ export const UploadProps = {
   },
 };
 
-export const UploadPropsImageLogo = (id, type) => {
+export const UploadPropsImageLogo = (id, type, setCurrentImage) => {
   return {
     name: 'file',
     action: `${UPLOAD_GAME_IMAGE_API}/${id}/${type}`,
     method: 'put',
     accept: '.png',
+    showUploadList: false,
     beforeUpload: beforeUploadValidate,
     headers: {
       authorization: `Bearer ${token}`,
@@ -48,8 +49,9 @@ export const UploadPropsImageLogo = (id, type) => {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === 'done') {
+        setCurrentImage(info.file.name);
         message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
+      } if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
       }
     },

@@ -16,7 +16,7 @@ function GameDetailPage({ history }) {
   return (
     <div>
       <h1 className="text-4xl text-white mb-5">Game Detail</h1>
-      { isDisabled && <Button className="mb-5 bg-white" onClick={() => setIsDisabled(false)}>Edit</Button>}
+      {isDisabled && <Button className="mb-5 bg-white" onClick={() => setIsDisabled(false)}>Edit</Button>}
       {!isDisabled && <Button className="mb-5 bg-white" onClick={() => setIsDisabled(true)}>Cancel</Button>}
       {data && (
       <GameForm

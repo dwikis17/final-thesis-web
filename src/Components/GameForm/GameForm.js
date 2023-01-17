@@ -29,6 +29,9 @@ function GameForm({
 
   const { handleChange, setFieldValue, values } = formik;
 
+  const [currentImage, setCurrentImage] = useState(gameData?.imageOriginalName || 'no-image');
+  const [currentImageBanner, setCurrentImageBanner] = useState(gameData?.imageBannerOriginalName || 'no-image');
+
   const handleSubmit = async () => {
     const { validateForm } = formik;
     const error = await validateForm(values);
@@ -68,13 +71,19 @@ function GameForm({
     return (
       <Row>
         <Col span={12}>
-          <Upload {...UploadPropsImageLogo(gameData?._id, 'image')}>
+          <Upload {...UploadPropsImageLogo(gameData?._id, 'image', setCurrentImage)}>
             <Button className="mb-5">Upload Image</Button>
+            <div className="mb-5">
+              {currentImage}
+            </div>
           </Upload>
         </Col>
-        <Col span={24}>
-          <Upload {...UploadPropsImageLogo(gameData?._id, 'imageBanner')}>
+        <Col span={12}>
+          <Upload {...UploadPropsImageLogo(gameData?._id, 'imageBanner', setCurrentImageBanner)}>
             <Button className="mb-5">Upload Image Banner</Button>
+            <div className="mb-5">
+              {currentImageBanner}
+            </div>
           </Upload>
         </Col>
 
@@ -85,7 +94,7 @@ function GameForm({
     <div className="w-full border border-white bg-white rounded-md p-12">
       <Form layout="vertical">
         {
-          isEditMode && !disabled && renderUploadImage()
+          isEditMode && renderUploadImage()
         }
         <Row>
           <Col span={24}>

@@ -12,11 +12,11 @@ import OrderPayloadSchema from '../../../Schema/OrderPayloadSchema';
 import useMidtransScript from '../../../Utils/useMidtransScript';
 import { createTransactionToken } from '../../../Utils/CommonUtils/CommonUtils';
 
-function TopUpPage(props) {
-  const history = useHistory();
+function TopUpPage({ history }) {
   const { game } = useParams();
 
-  const { fetchedData: { data } } = useAxios(`${FETCH_ALL_GAMES_API}/${game}`);
+  const { fetchedData: { data } } = useAxios(`${FETCH_ALL_GAMES_API}/${game}`, {}, history);
+
   useMidtransScript();
 
   const formik = useFormik({

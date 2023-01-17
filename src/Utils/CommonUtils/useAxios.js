@@ -3,7 +3,7 @@ import axios from 'axios';
 import { head } from 'lodash';
 import { headers } from './CommonUtils';
 
-export const useAxios = (url, params) => {
+export const useAxios = (url, params, history) => {
   const [loading, setLoading] = useState(true);
   const [fetchedData, setFetchedData] = useState([]);
   const [reFetch, setRefetch] = useState(false);
@@ -21,12 +21,15 @@ export const useAxios = (url, params) => {
     (async () => {
       try {
         const response = await axios.get(url, header);
+        if (!response.data) {
+          return history.push('/');
+        }
         setFetchedData(response);
         setErrorResponse(false);
-        setLoading(false);
+        return setLoading(false);
       } catch (error) {
         setErrorResponse(true);
-        setLoading(false);
+        return setLoading(false);
       }
     })();
   }, [reFetch]);
