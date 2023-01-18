@@ -17,21 +17,6 @@ function DashboardPage({ user, history }) {
         {user?.name}
       </h1>
 
-      <h2 className="text-white mb-5">
-        Hasil penjualan berdasarkan tipe game pada tahun
-        {' '}
-        <Select style={{ width: '10%', margin: 0 }} />
-        {' '}
-        Bulan
-        <Select style={{ width: '10%', margin: 0 }} options={months} value="March">
-          {months.map((value) => {
-            return (
-              <Option value={value.key} label={value.value} />
-            );
-          })}
-        </Select>
-      </h2>
-
       { data && <GameChart data={data} />}
 
     </div>

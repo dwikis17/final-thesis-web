@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin } from 'antd';
+import { Spin, Carousel } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useAxios } from '../../../Utils/CommonUtils/useAxios';
 import GameCard from '../../GameCard/GameCard';
@@ -15,7 +15,6 @@ function LandingPage(props) {
   const params = {
     searchKeyword
   };
-  console.log('masuk');
 
   const { fetchedData: { data }, callReFetch, loading } = useAxios(FETCH_ALL_GAMES_API, params);
 
@@ -45,6 +44,16 @@ function LandingPage(props) {
     <Spin spinning={loading}>
       <div className="container">
         <Header handleSearch={handleSearch} isAtLandingPage />
+        <div className=" w-full h-96 mt-8">
+          <Carousel autoplay className="border h-96">
+            <div className="border border-black h-96">
+              <img src="http://localhost:80/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
+            </div>
+            <div className="border border-black h-96">
+              <img src="http://localhost:80/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
+            </div>
+          </Carousel>
+        </div>
         <div className="p-10 h-full flex flex-col">
           <h1 className="mb-10 text-white text-2xl">Popular Games</h1>
           <div className="gap-10 grid justify-items-center  grid-cols-3  sm:grid-cols-4  h-96 ">
