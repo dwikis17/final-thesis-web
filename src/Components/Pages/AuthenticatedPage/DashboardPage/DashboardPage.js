@@ -3,7 +3,6 @@ import React from 'react';
 import { CHART_API, FETCH_ALL_TRANSACTION_API } from '../../../../Constants/Apis';
 import { useAxios } from '../../../../Utils/CommonUtils/useAxios';
 import GameChart from '../../../Charts/GameChart';
-import { months } from '../../../../Constants/DashboardConstant';
 
 const { Option } = Select;
 function DashboardPage({ user, history }) {
