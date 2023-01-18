@@ -115,6 +115,11 @@ class AdminRoutes extends React.Component {
                     label: 'Games Management',
                   },
                   {
+                    key: '/admin/denomination',
+                    icon: <FolderOpenOutlined />,
+                    label: 'Denomination Management',
+                  },
+                  {
                     key: '/logout',
                     icon: <LogoutOutlined />,
                     label: 'Logout',

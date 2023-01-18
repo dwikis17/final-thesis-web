@@ -6,6 +6,8 @@ import GameManagementPage from '../GameManagementPage/GameManagementPage';
 import DashboardPage from './DashboardPage/DashboardPage';
 import TransactionPage from './TransactionPage/TransactionPage';
 import GameDetailPage from '../GameDetailPage/GameDetailPage';
+import DenominationManagementPage from '../DenominationManagementPage/DenominationManagementPage';
+import DenominationCreationPage from '../DenominationCreationPage/DenominationCreationPage';
 
 function AuthenticatedPage({ history, userData }) {
   return (
@@ -39,6 +41,18 @@ function AuthenticatedPage({ history, userData }) {
         history={history}
         user={userData}
         component={GameDetailPage}
+      />
+      <PrivateRoute
+        path="/admin/denomination"
+        history={history}
+        user={userData}
+        component={DenominationManagementPage}
+      />
+      <PrivateRoute
+        path="/admin/create-denomination"
+        history={history}
+        user={userData}
+        component={DenominationCreationPage}
       />
       <Redirect to="/admin/dashboard" />
     </Switch>

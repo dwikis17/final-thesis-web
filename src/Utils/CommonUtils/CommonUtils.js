@@ -31,8 +31,9 @@ export const createNewGame = async (payload, history) => {
 };
 
 export const updateGame = async (payload, id) => {
+  const headerParams = { ...headers() };
   try {
-    return axios.put(`${FETCH_ALL_GAMES_API}/${id}`, payload);
+    return axios.put(`${FETCH_ALL_GAMES_API}/${id}`, payload, headerParams);
   } catch (e) {
     return message.error('something went wrong');
   }
