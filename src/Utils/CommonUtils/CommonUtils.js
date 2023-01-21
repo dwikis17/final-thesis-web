@@ -22,8 +22,9 @@ export const normalizeGameName = (gameName) => {
 };
 
 export const createNewGame = async (payload, history) => {
+  const headerParams = { ...headers() };
   try {
-    const { data: { _id } } = await axios.post(FETCH_ALL_GAMES_API, payload);
+    const { data: { _id } } = await axios.post(FETCH_ALL_GAMES_API, payload, headerParams);
     return history.push(`/admin/game-detail/${_id}`);
   } catch (e) {
     return message.error('something went wrong');
