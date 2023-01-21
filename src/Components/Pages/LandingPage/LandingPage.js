@@ -47,10 +47,10 @@ function LandingPage(props) {
         <div className=" w-full h-96 mt-8">
           <Carousel autoplay className="border h-96">
             <div className="border border-black h-96">
-              <img src="http://localhost:80/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
+              <img src="https://mern-thesis.herokuapp.com/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
             </div>
             <div className="border border-black h-96">
-              <img src="http://localhost:80/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
+              <img src="https://mern-thesis.herokuapp.com/uploads/1673527494899.jpg" alt="" className="w-full h-full" />
             </div>
           </Carousel>
         </div>
