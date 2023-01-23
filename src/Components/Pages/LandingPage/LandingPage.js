@@ -53,7 +53,6 @@ function LandingPage(props) {
               <div className="border border-black h-96">
                 <img src={`${BANNER_IMAGE}${items}`} alt="" className="w-full h-full" />
               </div>
-
             ))
            }
           </Carousel>
