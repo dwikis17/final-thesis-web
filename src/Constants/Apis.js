@@ -1,4 +1,4 @@
-const baseUrl = 'https://mern-thesis.herokuapp.com/api';
+const baseUrl = 'http://localhost:80/api';
 
 export const VERIFY_TOKEN_API = `${baseUrl}/admin/verify`;
 export const FETCH_ALL_GAMES_API = `${baseUrl}/game`;
@@ -11,4 +11,6 @@ export const UPDATE_TRANSACTION_API = `${baseUrl}/transaction/update`;
 export const FETCH_ALL_TRANSACTION_API = `${baseUrl}/transaction/transaction`;
 export const GET_TRANSACTION_BY_ORDER_ID = `${baseUrl}/transaction/get-transaction`;
 export const GET_DENOMINATION_LIST = `${baseUrl}/denomination`;
+export const BANNER_API = `${baseUrl}/banner`;
+export const BANNER_IMAGE = `${baseUrl}`;
 export const PAYMENT_REDIRECT = 'https://app.sandbox.midtrans.com/snap/v2/vtweb';
