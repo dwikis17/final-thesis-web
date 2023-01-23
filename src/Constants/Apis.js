@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:80/api';
+const baseUrl = 'https://mern-thesis.herokuapp.com/api';
 
 export const VERIFY_TOKEN_API = `${baseUrl}/admin/verify`;
 export const FETCH_ALL_GAMES_API = `${baseUrl}/game`;
