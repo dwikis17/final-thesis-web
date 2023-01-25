@@ -1,8 +1,9 @@
 import { message } from 'antd';
 import axios from 'axios';
+import { head } from 'lodash';
 import {
   FETCH_ALL_GAMES_API,
-  PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API, UPDATE_TRANSACTION_API
+  PAYMENT_API, PAYMENT_REDIRECT, SIGN_IN_API, UPDATE_TRANSACTION_API, GET_DENOMINATION_LIST
 } from '../../Constants/Apis';
 
 export const getToken = () => {
@@ -67,4 +68,11 @@ export const updateTransactionStatusToDone = async (orderId) => {
   };
 
   return axios.put(`${UPDATE_TRANSACTION_API}/${orderId}`, {}, headerParams);
+};
+
+export const deleteDenominationById = async (id) => {
+  const headerParams = {
+    ...headers()
+  };
+  return axios.delete(`${GET_DENOMINATION_LIST}/${id}`, headerParams);
 };

@@ -1,3 +1,4 @@
+import { LeftOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 import axios from 'axios';
 import { useFormik } from 'formik';
@@ -35,7 +36,11 @@ function GameCreationPage({ history }) {
   };
   return (
     <>
-      <h1 className="text-4xl text-white mb-5">Game Creation</h1>
+      <div className="flex items-center mb-6">
+        <LeftOutlined className="text-4xl text-white" onClick={() => history.push('/admin/games')} />
+        <h1 className="text-4xl text-white">Game Creation</h1>
+      </div>
+
       <GameForm history={history} formik={formik} handleSubmit={handleSubmit} />
     </>
   );

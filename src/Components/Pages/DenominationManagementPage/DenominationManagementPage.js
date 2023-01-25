@@ -1,16 +1,31 @@
 import React from 'react';
-import { Button, Table } from 'antd';
+import { Button, message, Table } from 'antd';
 import { useAxios } from '../../../Utils/CommonUtils/useAxios';
 import { GET_DENOMINATION_LIST } from '../../../Constants/Apis';
-import { handleNumberCurrency } from '../../../Utils/CommonUtils/CommonUtils';
+import { deleteDenominationById, handleNumberCurrency } from '../../../Utils/CommonUtils/CommonUtils';
 
 function DenominationManagementPage({ history }) {
-  const { fetchedData: { data } } = useAxios(GET_DENOMINATION_LIST);
+  const { fetchedData: { data }, callReFetch } = useAxios(GET_DENOMINATION_LIST);
 
   const renderPrice = (items) => {
     return handleNumberCurrency(items);
   };
 
+  const handleOnClickDelete = async (record) => {
+    try {
+      await deleteDenominationById(record._id);
+      message.success('Denomination deleted successfully');
+      return callReFetch();
+    } catch (error) {
+      return message.error(error?.response?.data?.message || 'Something went wrong, failed to delete denomination');
+    }
+  };
+
+  const renderDeleteButton = (record) => {
+    return (
+      <Button onClick={() => handleOnClickDelete(record)}>Delete</Button>
+    );
+  };
   const column = [
     {
       title: 'Nominal',
@@ -22,6 +37,12 @@ function DenominationManagementPage({ history }) {
       dataIndex: 'price',
       key: 'price',
       render: (items) => renderPrice(items)
+    },
+    {
+      title: 'Action',
+      dataIndex: 'price',
+      key: 'price',
+      render: (items, record) => renderDeleteButton(record)
     },
   ];
   return (

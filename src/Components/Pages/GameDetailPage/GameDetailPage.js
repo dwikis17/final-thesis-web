@@ -1,5 +1,6 @@
 import { Button } from 'antd';
 import { useFormik } from 'formik';
+import { LeftOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FETCH_ALL_GAMES_API } from '../../../Constants/Apis';
@@ -15,7 +16,10 @@ function GameDetailPage({ history }) {
 
   return (
     <div>
-      <h1 className="text-4xl text-white mb-5">Game Detail</h1>
+      <div className="flex items-center mb-6">
+        <LeftOutlined className="text-4xl text-white" onClick={() => history.push('/admin/games')} />
+        <h1 className="text-4xl text-white">Game Detail</h1>
+      </div>
       {isDisabled && <Button className="mb-5 bg-white" onClick={() => setIsDisabled(false)}>Edit</Button>}
       {!isDisabled && <Button className="mb-5 bg-white" onClick={() => setIsDisabled(true)}>Cancel</Button>}
       {data && (

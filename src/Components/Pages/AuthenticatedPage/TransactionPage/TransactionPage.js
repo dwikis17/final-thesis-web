@@ -1,4 +1,6 @@
-import { Button, Spin, Table } from 'antd';
+import {
+  Button, message, Spin, Table
+} from 'antd';
 import React, { useReducer } from 'react';
 import moment from 'moment';
 import { FETCH_ALL_TRANSACTION_API } from '../../../../Constants/Apis';
@@ -15,8 +17,13 @@ function TransactionPage(props) {
   const { fetchedData: { data }, callReFetch, loading } = useAxios(FETCH_ALL_TRANSACTION_API, state);
 
   const handleOnClickUpdate = async (orderId) => {
-    await updateTransactionStatusToDone(orderId);
-    callReFetch();
+    try {
+      await updateTransactionStatusToDone(orderId);
+      message.success('updated successfully');
+      return callReFetch();
+    } catch (error) {
+      return message.error('something went wrong, failed to update');
+    }
   };
 
   const renderMarkDoneButton = (items) => {

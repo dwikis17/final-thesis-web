@@ -3,6 +3,7 @@ import {
   Button,
   Col, Form, Input, Row, Upload, message, Select, InputNumber
 } from 'antd';
+import { LeftOutlined } from '@ant-design/icons';
 import { isEmpty } from 'lodash';
 import { useFormik } from 'formik';
 import DenominationCreationSChema from '../../../Schema/DenominationCreationSchema';
@@ -43,7 +44,10 @@ function DenominationCreationPage({ history }) {
   };
   return (
     <div>
-      <h1 className="text text-white text-4xl mb-5">Denomination Creation</h1>
+      <div className="flex items-center mb-6">
+        <LeftOutlined className="text-4xl text-white" onClick={() => history.push('/admin/denomination')} />
+        <h1 className="text-4xl text-white">Denomination Creation</h1>
+      </div>
       <div className="w-full border bg-white rounded-md p-12">
 
         <Form layout="vertical">

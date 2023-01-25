@@ -39,9 +39,11 @@ function GameForm({
       return message.error('Silahkan isi semua data !');
     }
     if (!isEditMode) {
-      return createNewGame(formik?.values, history);
+      await createNewGame(formik?.values, history);
+      message.success('game created successfuly');
     }
     await updateGame(formik?.values, gameData?._id);
+    message.success('game udpated successfuly');
     return setIsDisabled(true);
   };
 
