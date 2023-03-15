@@ -61,7 +61,10 @@ class SignInPage extends React.Component {
     try {
       const data = await doSignIn(values, history);
       window.localStorage.setItem('token', data?.data?.accessToken);
-      return history.push({ pathname: '/admin/dashboard', state: { auth: true } });
+      if (data?.data?.isAdmin) {
+        return history.push({ pathname: '/admin/dashboard', state: { auth: true } });
+      }
+      return history.push({ pathname: '/forum', state: { auth: true } });
     } catch (error) {
       console.log(error);
       if (error?.response?.status === 401) {
@@ -108,6 +111,11 @@ class SignInPage extends React.Component {
               </Button>
             </Form.Item>
           </Form>
+          <div>
+            Dont have account ?
+            {' '}
+            <a href="/sign-up/" className="text-blue-600">Sign Up</a>
+          </div>
         </div>
         <div className="grid w-full borde gap-0 justify-items-center" />
       </div>

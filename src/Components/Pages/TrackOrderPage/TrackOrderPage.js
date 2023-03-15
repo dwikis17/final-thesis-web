@@ -13,7 +13,7 @@ function TrackOrderPage(props) {
   const renderPayButton = (token) => {
     return (
       <Button type="submit" className="text-white bg-red-700 w-full" onClick={() => window.open(`${PAYMENT_REDIRECT}/${token}`)}>
-        Bayar
+        Pay
       </Button>
     );
   };
@@ -66,17 +66,17 @@ function TrackOrderPage(props) {
   return (
     <div className="container justify-items-center grid">
       <Header />
-      <h1 className=" text-4xl text-white mt-10">Track pesanan anda </h1>
+      <h1 className=" text-4xl text-white mt-10">Track your OrderPayloadSchema </h1>
       <div className="grid  w-full p-10 justify-items-center">
-        <Search className="sm:w-3/4 w-full" placeholder="Masukan transaksi ID disini" enterButton onSearch={(event) => handleSearch(event)} />
+        <Search className="sm:w-3/4 w-full" placeholder="Input your order id" enterButton onSearch={(event) => handleSearch(event)} />
       </div>
       <div className="grid w-full borde gap-0 justify-items-center">
         {
           data
-          && <Table columns={columns} dataSource={[data]} pagination={false} />
+        && <Table columns={columns} dataSource={[data]} pagination={false} />
         }
         {
-          isEmpty(data) && !isEmpty(searchedOrderId) && <h1 className="text-white">Order Id Tidak ditemukan !</h1>
+          isEmpty(data) && !isEmpty(searchedOrderId) && <h1 className="text-white">Order ID not found !</h1>
         }
       </div>
     </div>

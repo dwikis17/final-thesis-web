@@ -23,7 +23,8 @@ class AdminRoutes extends React.Component {
     this.state = {
       authenticated: false,
       name: '',
-      email: ''
+      email: '',
+      isAdmin: false
     };
   }
 
@@ -45,7 +46,7 @@ class AdminRoutes extends React.Component {
         this.setState({
           authenticated: false,
           email: data?.data?.decodedToken?.email,
-          name: data?.data?.decodedToken?.name
+          name: data?.data?.decodedToken?.name,
         });
         return history.push('/login');
       }
@@ -53,7 +54,8 @@ class AdminRoutes extends React.Component {
       return this.setState({
         authenticated: true,
         email: data?.data?.decodedToken?.email,
-        name: data?.data?.decodedToken?.name
+        name: data?.data?.decodedToken?.name,
+        isAdmin: data?.data?.decodedToken?.isAdmin
       });
     } catch (e) {
       localStorage.clear();
@@ -74,9 +76,12 @@ class AdminRoutes extends React.Component {
   };
 
   render() {
-    const { authenticated, name, email } = this.state;
+    const {
+      authenticated, name, email, isAdmin
+    } = this.state;
+    console.log(isAdmin);
     const { history } = this.props;
-    return authenticated ? (
+    return authenticated && isAdmin ? (
       <div className="relative">
         <div className="routes-container w-100 h-full mb-10">
           <Layout>

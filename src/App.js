@@ -10,6 +10,9 @@ import TrackOrderPage from './Components/Pages/TrackOrderPage/TrackOrderPage';
 import SignInPage from './Components/Pages/SignInPage/SignInPage';
 import AdminRoutes from './Components/Routes/AdminRoutes';
 import CheckoutPage from './Components/Pages/CheckoutPage/CheckoutPage';
+import ForumPage from './Components/Pages/ForumPage/ForumPage';
+import ForumContentPage from './Components/Pages/ForumContentPage/ForumContentPage';
+import SignUpPage from './Components/Pages/SignUpPage/SignUpPage';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/track" component={TrackOrderPage} />
         <Route path="/login" component={SignInPage} />
         <Route path="/admin" component={AdminRoutes} />
+        <Route path="/forum" component={ForumPage} />
+        <Route path="/sign-up" component={SignUpPage} />
+        <Route path="/content/:id" component={ForumContentPage} />
         <Route path="/checkout" component={CheckoutPage} />
         <Redirect to="/" />
       </Switch>

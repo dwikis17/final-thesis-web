@@ -8,9 +8,12 @@ function IdTaglineSection({ formik, game }) {
   return (
     <>
       <h1>
-        Masukan ID
+        Input your
         {' '}
         {game}
+        {' '}
+        ID
+
       </h1>
       <div className="w-full grid grid-cols-3 bg-white items-center rounded-xl sm:gap-10 h-24 p-2 justify-items-start gap-0 ">
         <div className=" col-span-2 w-full grid grid-cols-2  ">

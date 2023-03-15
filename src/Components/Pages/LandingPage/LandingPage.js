@@ -45,6 +45,7 @@ function LandingPage(props) {
     <Spin spinning={loading}>
       <div className="container">
         <Header handleSearch={handleSearch} isAtLandingPage />
+
         <div className=" w-full h-96 mt-8">
           <Carousel autoplay className="border h-96">
             {
@@ -57,6 +58,7 @@ function LandingPage(props) {
            }
           </Carousel>
         </div>
+
         <div className="p-10 h-full flex flex-col">
           <h1 className="mb-10 text-white text-2xl">Popular Games</h1>
           <div className="gap-10 grid justify-items-center  grid-cols-3  sm:grid-cols-4  h-96 ">

@@ -35,7 +35,7 @@ function TopUpPage({ history }) {
     const error = await validateForm(values);
 
     if (!isEmpty(error)) {
-      return message.error('Silahkan isi semua data !');
+      return message.error('Please select all mandatory fields');
     }
     return createTransactionToken(formik.values, history);
   };

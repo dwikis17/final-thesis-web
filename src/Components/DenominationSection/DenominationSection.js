@@ -31,7 +31,7 @@ function DenominationSection({ data, formik }) {
   };
   return (
     <>
-      <h1>Pilih Nominal Voucher</h1>
+      <h1>Select vouchers</h1>
       <div className="w-full grid grid-cols-3 bg-white  items-center rounded-xl sm:gap-10 h-full p-2 justify-items-start gap-0  border border-black">
         <div className="w-full col-span-2 grid grid-cols-2 pplace-content-around p-3 gap-4">
           {renderDenomination()}

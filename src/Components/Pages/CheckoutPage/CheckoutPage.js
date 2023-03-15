@@ -13,13 +13,13 @@ function CheckoutPage({ location }) {
     <div className="container">
       <Header />
       <div className="border border-white text-white text-center">
-        <h1 className="text-4xl">Terimakasih sudah berbelanja di EZSKIN!</h1>
+        <h1 className="text-4xl">Thank you for your order !!</h1>
         <p>
-          Silakan selesaikan proses pembayaran,
+          Please complete your payment,
           {' '}
-          <button onClick={() => window.open(location?.state?.redirectUrl)} type="submit">Click disini</button>
+          <button onClick={() => window.open(location?.state?.redirectUrl)} type="submit">Click here</button>
           {' '}
-          untuk menuju link pembayaran jika tab tidak terbuka secara otomatis
+          if the payment pop up did not appear
         </p>
       </div>
     </div>
