@@ -66,7 +66,7 @@ function TrackOrderPage(props) {
   return (
     <div className="container justify-items-center grid">
       <Header />
-      <h1 className=" text-4xl text-white mt-10">Track your OrderPayloadSchema </h1>
+      <h1 className=" text-4xl text-white mt-10">Track your Order </h1>
       <div className="grid  w-full p-10 justify-items-center">
         <Search className="sm:w-3/4 w-full" placeholder="Input your order id" enterButton onSearch={(event) => handleSearch(event)} />
       </div>
