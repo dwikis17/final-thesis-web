@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Input, Button } from 'antd';
 import { isEmpty } from 'lodash';
 import axios from 'axios';
+import { LeftOutlined } from '@ant-design/icons';
 import { FETCH_ALL_POST_API } from '../../../Constants/Apis';
 import { getToken } from '../../../Utils/CommonUtils/CommonUtils';
 import { useAxios } from '../../../Utils/CommonUtils/useAxios';
@@ -46,10 +47,14 @@ function ForumContentPage({ history }) {
 
   return data && (
   <div className=" h-screen p-5 w-full m-auto">
-    <main className=" h-full text-center  p-5">
-      <h1 className="text-4xl text-white mb-5">JagoanTopUp Forum</h1>
+    <main className=" h-full text-center  p-5 ">
+      <h1 className="text-4xl text-white mb-5">TOPUPKUY FORUM</h1>
       <div className=" w-full text-left p-12">
-        <h1 className="mb-12 text-white text-4xl">{data[0]?.title}</h1>
+        <div className=" w-full flex flex-row items-center mb-5">
+          <LeftOutlined className="text-3xl text-white " onClick={() => history.push('/forum')} />
+          <h1 className="mb-2 ml-3 text-white text-4xl ">{data[0]?.title}</h1>
+        </div>
+
         <p className="  bg-white rounded-xl p-6 mb-12">{data[0]?.description}</p>
         <div className="">
           {commentData && renderComments()}
